@@ -58,6 +58,7 @@
       "nicholascui225",
       "noe2971",
       "nosleep32",
+      "pnimmaga-jpg",
       "rarangil",
       "rayank7674",
       "riishp",
@@ -137,6 +138,7 @@
       "nchandy",
       "ncui2",
       "ndishon",
+      "pnimmaga",
       "rarangil",
       "renfeirw",
       "rkha",
@@ -168,6 +170,7 @@
           "a-varigonda",
           "ay93546",
           "brady-q",
+          "pnimmaga-jpg",
           "rocketrules",
           "rohansp007",
           "the-srianeesh"
@@ -177,6 +180,7 @@
           "audreyya",
           "avarigon",
           "bquo",
+          "pnimmaga",
           "rparthip",
           "srianeek"
         ]
@@ -248,6 +252,34 @@
       "website": "cmubulletin.com",
       "server": "your-team-server.com"
     },
+    "cmu-research": {
+      "name": "CMU Research",
+      "description": "CMU Research Team",
+      "members": {
+        "github_usernames": [
+          "jahuang24",
+          "nicholascui225"
+        ],
+        "andrew_ids": [
+          "jarretth",
+          "ncui2"
+        ]
+      },
+      "admins": {
+        "github_usernames": [
+          "jahuang24",
+          "nicholascui225"
+        ],
+        "andrew_ids": [
+          "jarretth",
+          "ncui2"
+        ]
+      },
+      "repos": [
+        "ResearchStarter"
+      ],
+      "create_oidc_clients": false
+    },
     "cmu-scottytasks": {
       "name": "CMU-ScottyTasks",
       "description": "A mobile gamified task/habit tracker with a leaderboard system and a personalized, upgradable Scotty dog avatar.\"\n",
@@ -283,12 +315,16 @@
           "cahove",
           "dishon949",
           "hanabenko",
+          "jahuang24",
+          "nicholascui225",
           "ziwei-che"
         ],
         "andrew_ids": [
           "avarigon",
           "chove",
           "hbenko",
+          "jarretth",
+          "ncui2",
           "ndishon",
           "semathew",
           "yh4",
