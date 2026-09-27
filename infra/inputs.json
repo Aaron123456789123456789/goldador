@@ -510,24 +510,6 @@
       "website": "wiki.scottylabs.org",
       "server": "api.wiki.scottylabs.org"
     },
-    "cmuresearch": {
-      "name": "CMU Research",
-      "description": "The CMU Research team.",
-      "members": {
-        "github_usernames": [],
-        "andrew_ids": [
-          "bryung"
-        ]
-      },
-      "admins": {
-        "github_usernames": [],
-        "andrew_ids": [
-          "bryung"
-        ]
-      },
-      "repos": [],
-      "create_oidc_clients": true
-    },
     "cmuservice": {
       "name": "CMU Service",
       "description": "The CMU Service team.",
