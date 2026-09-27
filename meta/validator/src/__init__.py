@@ -125,7 +125,7 @@ def main() -> None:
             )
 
             try:
-                payload: Mapping[str, object] = run_validation()
+                payload: Mapping[str, object] = run_validation(reporter=Reporter())
             except (
                 GitHubRateLimitError,
                 MemberValidationError,

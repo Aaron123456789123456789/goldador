@@ -10,6 +10,7 @@ from fastapi.testclient import TestClient
 
 from meta.clients.github_client import get_github_client
 from meta.loaders.errors import GovernanceLoadError
+from meta.loaders.types import LoaderErrorCode, RecordFn
 from meta.validator.src import server
 from meta.validator.src.github_utils import GitHubRateLimitError, GoldadorGitHubError
 
@@ -39,6 +40,35 @@ def test_validate_maps_governance_load_error(monkeypatch: MonkeyPatch) -> None:
     assert file_path in errors
     assert errors[file_path][0]["code"] == "GOVERNANCE_LOAD_ERROR"
     assert error_message in errors[file_path][0]["message"]
+
+
+def test_run_validation_for_ref_keeps_non_toml_errors(
+    monkeypatch: MonkeyPatch,
+) -> None:
+    """Non-.toml directory entries must be returned as validation errors."""
+
+    def fake_fetch(
+        ref: str,
+        *,
+        record: RecordFn | None = None,
+    ) -> tuple[list[tuple[str, str]], list[tuple[str, str]]]:
+        assert ref == "abc123"
+        assert record is not None
+        record(
+            "members/faribahnuha",
+            LoaderErrorCode.MEMBER_NOT_FILE,
+            "Not a .toml file",
+        )
+        return [], []
+
+    monkeypatch.setattr(server, "fetch_goldador_toml_at_ref", fake_fetch)
+
+    result = server.run_validation_for_ref("abc123")
+
+    errors = result["validation"]["errors"]
+    assert errors["members/faribahnuha"] == [
+        {"code": "MEMBER_NOT_FILE", "message": "Not a .toml file"},
+    ]
 
 
 def test_validate_maps_ref_not_found_to_404(monkeypatch: MonkeyPatch) -> None:
